@@ -7,7 +7,8 @@ const model = [
 		'Hello',
 		'World',
 		'!'
-	]}
+	]},
+	{type: 'image', value: './assets/completeCourse.png'},
 ]
 
 const $site = document.querySelector('#site');
@@ -21,6 +22,8 @@ model.forEach(block => {
 		html = text(block)
 	} else if (block.type === 'columns') {
 		html = columns(block)
+	} else if (block.type === 'image') {
+		html = image(block)
 	}
 
 	$site.insertAdjacentHTML('beforeend', html)
@@ -51,6 +54,14 @@ function columns(block) {
 	return `
 	<div class="row">
 		${html}
+	</div>
+	`
+}
+
+function image(block) {
+	return `
+	<div class="row">
+		<img src=${block.value}>
 	</div>
 	`
 }
