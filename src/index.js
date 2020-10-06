@@ -1,10 +1,10 @@
-"use strict"
-
 import {model} from './model'
+import {Site} from './classes/site.js'
 import './styles/main'
+import { Sidebar } from './classes/sidebar';
 
-const $site = document.querySelector('#site');
+const site = new Site('#site');
 
-model.forEach(block => {
-	$site.insertAdjacentHTML('beforeend', block.toHTML())
-})
+site.render(model)
+
+const sidebar = new Sidebar('#panel')
