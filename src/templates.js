@@ -17,8 +17,8 @@ function columns(block) {
 }
 
 function image(block) {
-	const {styles} = block.options
-	return row(`<img src=${block.value}>`, css(styles))
+	const {styles, imageStyles : is, alt = ""} = block.options
+	return row(`<img src="${block.value}" alt="${alt}" style="${css(is)}"`, css(styles))
 }
 
 export const templates = {
